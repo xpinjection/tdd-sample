@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false">
+    <class name="com.xpinjection.tdd.domain.Book" table="book">
+        <id name="id" column="id" type="long">
+            <generator class="identity"/>
+        </id>
+        <property name="title" column="title" type="string" />
+        <property name="tagsList" column="tags" type="string" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+        <!-- Format all SQL echos -->
+        <property name="format_sql">false</property>
+        <!-- Use autoproxy class optimization -->
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <!-- For online substitutions "true" to "1" and "false" to "0" -->
+        <property name="hibernate.query.substitutions">true 1, false 0</property>
+        <!-- Disable JDBC batch -->
+        <property name="hibernate.jdbc.batch_size">0</property>
+
+        <!-- Object mappings -->
+        <mapping resource="hibernate/mapping/Book.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,4 @@
+<!DOCTYPE dataset SYSTEM "../../../../../db-schema/database.dtd">
+<dataset>
+    <BOOK ID="1" TITLE="Spring in Action" />
+</dataset>

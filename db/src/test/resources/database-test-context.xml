@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+    <bean id="configuration" class="org.unitils.core.ConfigurationLoader"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="properties">
+            <bean factory-bean="configuration" factory-method="loadConfiguration"/>
+        </property>
+    </bean>
+
+    <bean id="dataSource" class="org.unitils.database.UnitilsDataSourceFactoryBean"/>
+
+    <util:map id="hibernateProperties" map-class="java.util.Properties">
+        <entry key="hibernate.show_sql" value="true"/>
+        <entry key="hibernate.format_sql" value="false"/>
+        <entry key="hibernate.dialect" value="${database.hibernate.dialect}"/>
+        <entry key="hibernate.default_schema" value="${database.schemaNames}"/>
+        <entry key="hibernate.cache.use_second_level_cache" value="false"/>
+        <entry key="hibernate.cache.use_query_cache" value="false"/>
+        <entry key="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+    </util:map>
+</beans>

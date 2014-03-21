@@ -1,0 +1,4 @@
+<!DOCTYPE dataset SYSTEM "../../../../../db-schema/database.dtd">
+<dataset>
+    <BOOK TITLE="Hibernate in Action" TAGS="blog|java" />
+</dataset>
